@@ -1,12 +1,5 @@
 /* ---------------- Config ---------------- */
-const PHOTOS = [
-  "IMG_4477.jpeg",
-  "IMG_5506.jpeg",
-  "IMG_6231.jpeg",
-  "IMG_6244.jpeg",
-  "IMG_6371.jpeg",
-  "image000000.jpeg"
-];
+const PHOTOS = ["1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg","6.jpeg"];
 
 /* ---------------- Gallery ---------------- */
 const gallery = document.getElementById('gallery');
@@ -23,7 +16,7 @@ if (gallery) {
 const wall = document.getElementById('wall');
 const emptyState = document.getElementById('emptyState');
 const KEY = 'verena_notes_v1';
-const COLORS = ['#fffd8c','#ffd1e6','#c7f4ff','#c8ffcf','#ead6ff']; // pastel
+const COLORS = ['#fffd8c','#ffd1e6','#c7f4ff','#c8ffcf','#ead6ff'];
 const ROT = ['-2deg','-1deg','1deg','2deg','-3deg','3deg'];
 
 function renderNotes(){
@@ -72,23 +65,25 @@ const verenaQuiz = document.getElementById('verenaQuiz');
 if (verenaQuiz) {
   verenaQuiz.addEventListener('submit', e=>{
     e.preventDefault();
-    const answers = {
-      q1: "a", // Germany
-      q2: "a", // Latte
-      q3: "d", // Solving puzzles
-      q4: "a", // Lying on the beach
-      q5: "a", // Summer
-      q6: "c"  // Fish
-    };
+    const answers = { q1:"a", q2:"a", q3:"d", q4:"a", q5:"a", q6:"c" };
     let correct = 0;
-    for (let q in answers) {
-      const val = (new FormData(verenaQuiz)).get(q);
-      if (val === answers[q]) correct++;
-    }
+    let feedback = "";
+    const data = new FormData(verenaQuiz);
+
+    Object.keys(answers).forEach((q, i) => {
+      const val = data.get(q);
+      if (val === answers[q]) {
+        correct++;
+        feedback += `Q${i+1} ✅ Correct<br>`;
+      } else {
+        feedback += `Q${i+1} ❌ Wrong<br>`;
+      }
+    });
+
     const out=document.getElementById('verenaQuizResult');
-    out.textContent = `You got ${correct} / ${Object.keys(answers).length} correct!`;
+    out.innerHTML = `You got ${correct}/6 correct.<br><br>${feedback}`;
     if (correct === Object.keys(answers).length) {
-      out.textContent += " 🎉 Perfect score!";
+      out.innerHTML += " 🎉 Perfect score!";
       confetti(100);
     }
   });
@@ -102,8 +97,12 @@ if (quiz) {
     const pick=(new FormData(e.target)).get('q1');
     const out=document.getElementById('quizResult');
     if(!pick){ out.textContent='Pick one.'; return; }
-    if(pick==='egypt'){ out.textContent='Correct — “Walk Like an Egyptian” was #1 for 1987.'; confetti(80); }
-    else{ out.textContent='Close! Year-end #1 was “Walk Like an Egyptian.”'; }
+    if(pick==='labamba'){ 
+      out.textContent='Correct — “La Bamba” by Los Lobos was #1 in September 1987!';
+      confetti(80); 
+    } else { 
+      out.textContent='Not quite! The #1 song in September 1987 was “La Bamba” by Los Lobos.';
+    }
   });
 }
 
