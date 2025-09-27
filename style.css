@@ -12,6 +12,7 @@ header {
   padding: 2rem;
   background: linear-gradient(to right, #ff99cc, #66ccff);
   color: #fff;
+  position: relative;
 }
 
 header h1 {
@@ -27,6 +28,31 @@ header p {
   margin: 0.5rem 0 0;
 }
 
+/* Floating Stars */
+#stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
 /* Sections */
 .section {
   margin: 2rem auto;
@@ -35,21 +61,24 @@ header p {
   background: rgba(20, 20, 50, 0.7);
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 1;
 }
 
 /* Gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
 
 .gallery img {
   width: 100%;
-  height: 250px;          /* fixed height for uniform cards */
-  object-fit: contain;    /* keep whole photo, no cropping */
-  background-color: #0f0f3d; /* fills empty space neatly */
+  height: 200px;
+  object-fit: contain;     /* show full photo without cropping */
+  object-position: center; /* center inside box */
+  background-color: #0f0f3d; /* fill empty space neatly */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
@@ -137,4 +166,20 @@ footer {
   background: pink;
   border-radius: 50% 50% 50% 50%;
   animation: float 6s ease-in-out infinite;
+}
+
+/* Streamers */
+.streamer {
+  position: absolute;
+  width: 4px;
+  height: 100px;
+  background: linear-gradient(to bottom, red, yellow, green, blue);
+  border-radius: 2px;
+  animation: sway 3s infinite ease-in-out;
+}
+
+@keyframes sway {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
 }
