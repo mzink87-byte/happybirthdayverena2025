@@ -1,116 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Happy Birthday, Verena! 🎉</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Verena!</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="stars"></div>
+  <header>
+    <h1>🎉 Happy Birthday, Verena! 🎂</h1>
+    <p>We love you.</p>
+  </header>
 
-<header class="wrap">
-  <h1>Happy Birthday, Verena! 🎂</h1>
-  <p class="tag">We love you.</p>
-</header>
-
-<main class="wrap">
-  <!-- Gallery -->
-  <section class="section">
+  <!-- Memories / Photo Gallery -->
+  <div class="wrap section">
     <h2>Memories</h2>
-    <div id="gallery" class="gallery card"></div>
-  </section>
+    <div class="gallery" id="gallery"></div>
+  </div>
 
-  <!-- Sticky notes -->
-  <section class="section card">
-    <h2 style="margin-top:0">Birthday Sticky Notes</h2>
-    <form id="noteForm" class="inline">
-      <input id="who" type="text" placeholder="Your name" required />
-      <input id="what" type="text" placeholder="Write a short note (max 120)" maxlength="120" required />
-      <button class="btn" type="submit">Post</button>
+  <!-- Sticky Notes -->
+  <div class="wrap section">
+    <h2>Birthday Sticky Notes</h2>
+    <form id="noteForm">
+      <input type="text" id="who" placeholder="Your name" maxlength="20" required>
+      <input type="text" id="what" placeholder="Write a short note (max 120)" maxlength="120" required>
+      <button type="submit">Post</button>
     </form>
-    <div id="wall" class="wall">
-      <p id="emptyState" class="wall-empty">Be the first to leave a note!</p>
+    <div class="notes" id="wall">
+      <div id="emptyState"><em>Be the first to leave a note!</em></div>
     </div>
-  </section>
+  </div>
 
   <!-- Verena Pop Quiz -->
-  <section class="section card">
-    <h2 style="margin-top:0">How Well Do You Know Verena?</h2>
+  <div class="wrap section">
+    <h2>How Well Do You Know Verena?</h2>
     <form id="verenaQuiz">
-      <p><b>1.</b> Where was Verena born?</p>
+      <p>1. Where was Verena born?</p>
       <label><input type="radio" name="q1" value="a"> Germany</label><br>
       <label><input type="radio" name="q1" value="b"> Texas</label><br>
       <label><input type="radio" name="q1" value="c"> Italy</label><br>
-      <label><input type="radio" name="q1" value="d"> New York</label><br><br>
+      <label><input type="radio" name="q1" value="d"> New York</label><br>
 
-      <p><b>2.</b> What is Verena’s coffee/tea order?</p>
+      <p>2. What is Verena’s coffee/tea order?</p>
       <label><input type="radio" name="q2" value="a"> Latte</label><br>
       <label><input type="radio" name="q2" value="b"> Cappuccino</label><br>
       <label><input type="radio" name="q2" value="c"> Black coffee</label><br>
-      <label><input type="radio" name="q2" value="d"> Herbal tea</label><br><br>
+      <label><input type="radio" name="q2" value="d"> Herbal tea</label><br>
 
-      <p><b>3.</b> What’s her hidden talent?</p>
+      <p>3. What’s her hidden talent?</p>
       <label><input type="radio" name="q3" value="a"> Singing</label><br>
       <label><input type="radio" name="q3" value="b"> Dancing</label><br>
       <label><input type="radio" name="q3" value="c"> Baking</label><br>
-      <label><input type="radio" name="q3" value="d"> Solving puzzles</label><br><br>
+      <label><input type="radio" name="q3" value="d"> Solving puzzles</label><br>
 
-      <p><b>4.</b> What’s Verena’s dream vacation activity?</p>
+      <p>4. What’s Verena’s dream vacation activity?</p>
       <label><input type="radio" name="q4" value="a"> Lying on the beach</label><br>
       <label><input type="radio" name="q4" value="b"> Exploring castles</label><br>
       <label><input type="radio" name="q4" value="c"> Hiking mountains</label><br>
-      <label><input type="radio" name="q4" value="d"> Shopping in big cities</label><br><br>
+      <label><input type="radio" name="q4" value="d"> Shopping in big cities</label><br>
 
-      <p><b>5.</b> What’s her favorite season?</p>
+      <p>5. What’s her favorite season?</p>
       <label><input type="radio" name="q5" value="a"> Summer</label><br>
       <label><input type="radio" name="q5" value="b"> Fall</label><br>
       <label><input type="radio" name="q5" value="c"> Winter</label><br>
-      <label><input type="radio" name="q5" value="d"> Spring</label><br><br>
+      <label><input type="radio" name="q5" value="d"> Spring</label><br>
 
-      <p><b>6.</b> Which pet would Verena pick if she could have any?</p>
+      <p>6. Which pet would Verena pick if she could have any?</p>
       <label><input type="radio" name="q6" value="a"> Dog</label><br>
       <label><input type="radio" name="q6" value="b"> Cat</label><br>
       <label><input type="radio" name="q6" value="c"> Fish</label><br>
-      <label><input type="radio" name="q6" value="d"> Parrot</label><br><br>
+      <label><input type="radio" name="q6" value="d"> Parrot</label><br>
 
-      <button class="btn" type="submit">Submit Answers</button>
+      <button type="submit">Submit</button>
     </form>
-    <p id="verenaQuizResult" style="font-weight:700"></p>
-  </section>
+    <p id="verenaQuizResult"></p>
+  </div>
 
-  <!-- Trivia Section -->
-  <section class="section card">
+  <!-- 1987 Trivia -->
+  <div class="wrap section">
     <h2>1987 Trivia</h2>
     <form id="quiz">
-      <p>Which song was the #1 Billboard year-end single in 1987?</p>
+      <p>What was the number one song in September 1987?</p>
+      <label><input type="radio" name="q1" value="labamba"> "La Bamba" — Los Lobos</label><br>
       <label><input type="radio" name="q1" value="bonjovi"> "Livin' on a Prayer" — Bon Jovi</label><br>
       <label><input type="radio" name="q1" value="u2"> "With or Without You" — U2</label><br>
       <label><input type="radio" name="q1" value="whitney"> "I Wanna Dance with Somebody" — Whitney Houston</label><br>
-      <label><input type="radio" name="q1" value="egypt"> "Walk Like an Egyptian" — The Bangles</label><br><br>
-      <button class="btn">Submit</button>
+      <button type="submit">Submit</button>
     </form>
     <p id="quizResult"></p>
-  </section>
+  </div>
 
-  <!-- YouTube Section -->
+  <!-- YouTube Song -->
   <div class="wrap section center">
     <div class="card">
       <h2>🎶 Birthday Song</h2>
       <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/nK0Pi4wC8Hk"
+        src="https://www.youtube.com/embed/0X0L-hpJ5h8"
         title="La Bamba" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="wrap center">
+  <footer>
     <p>Made with ❤️ by Matthew</p>
   </footer>
-</main>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
