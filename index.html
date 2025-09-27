@@ -5,15 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Verena!</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Stars -->
+  <div id="stars"></div>
+
+  <!-- Confetti + Streamers -->
+  <div id="confetti-container"></div>
+  <div id="streamers-container"></div>
+
+  <!-- Header -->
   <header>
-    <h1>🎉 Happy Birthday, Verena! 🎂</h1>
+    <h1>Happy Birthday, Verena! 🎂</h1>
     <p>We love you.</p>
   </header>
 
-  <!-- Memories / Photo Gallery -->
-  <div class="wrap section">
+  <!-- Memories Gallery -->
+  <section>
     <h2>Memories</h2>
     <div class="gallery">
       <img src="IMG_5506.jpeg" alt="Family memory">
@@ -22,94 +31,67 @@
       <img src="IMG_6371.jpeg" alt="Family memory">
       <img src="image000000.jpeg" alt="Family memory">
     </div>
-  </div>
+  </section>
 
   <!-- Sticky Notes -->
-  <div class="wrap section">
+  <section id="stickyNotes">
     <h2>Birthday Sticky Notes</h2>
     <form id="noteForm">
-      <input type="text" id="who" placeholder="Your name" maxlength="20" required>
-      <input type="text" id="what" placeholder="Write a short note (max 120)" maxlength="120" required>
+      <input type="text" id="name" placeholder="Your name" required>
+      <input type="text" id="note" placeholder="Write a short note (max 120)" maxlength="120" required>
       <button type="submit">Post</button>
     </form>
-    <div class="notes" id="wall">
-      <div id="emptyState"><em>Be the first to leave a note!</em></div>
-    </div>
-  </div>
+    <div id="notesBoard"></div>
+  </section>
 
-  <!-- Verena Pop Quiz -->
-  <div class="wrap section">
+  <!-- Quiz -->
+  <section id="quiz">
     <h2>How Well Do You Know Verena?</h2>
-    <form id="verenaQuiz">
-      <p>1. Where was Verena born?</p>
-      <label><input type="radio" name="q1" value="a"> Germany</label><br>
-      <label><input type="radio" name="q1" value="b"> Texas</label><br>
-      <label><input type="radio" name="q1" value="c"> Italy</label><br>
-      <label><input type="radio" name="q1" value="d"> New York</label><br>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Where was Verena born?</p>
+        <label><input type="radio" name="q1" value="a"> Germany</label>
+        <label><input type="radio" name="q1" value="b"> Texas</label>
+        <label><input type="radio" name="q1" value="c"> Italy</label>
+        <label><input type="radio" name="q1" value="d"> New York</label>
+      </div>
 
-      <p>2. What is Verena’s coffee/tea order?</p>
-      <label><input type="radio" name="q2" value="a"> Latte</label><br>
-      <label><input type="radio" name="q2" value="b"> Cappuccino</label><br>
-      <label><input type="radio" name="q2" value="c"> Black coffee</label><br>
-      <label><input type="radio" name="q2" value="d"> Herbal tea</label><br>
+      <div class="question">
+        <p>2. What is Verena’s favorite animal?</p>
+        <label><input type="radio" name="q2" value="a"> Cat</label>
+        <label><input type="radio" name="q2" value="b"> Dog</label>
+        <label><input type="radio" name="q2" value="c"> Bird</label>
+        <label><input type="radio" name="q2" value="d"> Fish</label>
+      </div>
 
-      <p>3. What’s her hidden talent?</p>
-      <label><input type="radio" name="q3" value="a"> Singing</label><br>
-      <label><input type="radio" name="q3" value="b"> Dancing</label><br>
-      <label><input type="radio" name="q3" value="c"> Baking</label><br>
-      <label><input type="radio" name="q3" value="d"> Solving puzzles</label><br>
-
-      <p>4. What’s Verena’s dream vacation activity?</p>
-      <label><input type="radio" name="q4" value="a"> Lying on the beach</label><br>
-      <label><input type="radio" name="q4" value="b"> Exploring castles</label><br>
-      <label><input type="radio" name="q4" value="c"> Hiking mountains</label><br>
-      <label><input type="radio" name="q4" value="d"> Shopping in big cities</label><br>
-
-      <p>5. What’s her favorite season?</p>
-      <label><input type="radio" name="q5" value="a"> Summer</label><br>
-      <label><input type="radio" name="q5" value="b"> Fall</label><br>
-      <label><input type="radio" name="q5" value="c"> Winter</label><br>
-      <label><input type="radio" name="q5" value="d"> Spring</label><br>
-
-      <p>6. Which pet would Verena pick if she could have any?</p>
-      <label><input type="radio" name="q6" value="a"> Dog</label><br>
-      <label><input type="radio" name="q6" value="b"> Cat</label><br>
-      <label><input type="radio" name="q6" value="c"> Fish</label><br>
-      <label><input type="radio" name="q6" value="d"> Parrot</label><br>
+      <div class="question">
+        <p>3. What was the #1 song in September 1987?</p>
+        <label><input type="radio" name="q3" value="a"> "Livin' on a Prayer" — Bon Jovi</label>
+        <label><input type="radio" name="q3" value="b"> "With or Without You" — U2</label>
+        <label><input type="radio" name="q3" value="c"> "I Wanna Dance with Somebody" — Whitney Houston</label>
+        <label><input type="radio" name="q3" value="d"> "La Bamba" — Los Lobos</label>
+      </div>
 
       <button type="submit">Submit</button>
     </form>
-    <p id="verenaQuizResult"></p>
-  </div>
+    <div id="quizResult"></div>
+  </section>
 
-  <!-- 1987 Trivia -->
-  <div class="wrap section">
-    <h2>1987 Trivia</h2>
-    <form id="quiz">
-      <p>What was the number one song in September 1987?</p>
-      <label><input type="radio" name="q1" value="labamba"> "La Bamba" — Los Lobos</label><br>
-      <label><input type="radio" name="q1" value="bonjovi"> "Livin' on a Prayer" — Bon Jovi</label><br>
-      <label><input type="radio" name="q1" value="u2"> "With or Without You" — U2</label><br>
-      <label><input type="radio" name="q1" value="whitney"> "I Wanna Dance with Somebody" — Whitney Houston</label><br>
-      <button type="submit">Submit</button>
-    </form>
-    <p id="quizResult"></p>
-  </div>
+  <!-- Song -->
+  <section id="song">
+    <h2>🎶 Birthday Song</h2>
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/4ssJcMkmUUw"
+      title="Happy Birthday Song"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </section>
 
-  <!-- Birthday Song -->
-  <div class="wrap section center">
-    <div class="card">
-      <h2>🎶 Birthday Song</h2>
-      <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/inS9gAgSENE"
-        title="Happy Birthday Song" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
+  <!-- Footer -->
   <footer>
     <p>Made with ❤️ by Matthew</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
