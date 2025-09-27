@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday, Verena! 🎉</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1030; --panel:#151842; --ink:#f4f7ff; --dim:#bac4ee;
+    --a:#ff8bd1; --b:#6ad5ff; --c:#ffe66d; --d:#8cff98; --e:#caa7ff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+       background:
+       radial-gradient(1200px 800px at 30% -10%,#2a2f7a,var(--bg)); overflow-x:hidden;}
+  /* subtle starfield */
+  .stars, .stars:after{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%,#ffffff66 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 80% 60%,#ffffff4d 50%,transparent 51%),
+      radial-gradient(1.8px 1.8px at 60% 10%,#ffffff40 50%,transparent 51%),
+      radial-gradient(1.2px 1.2px at 15% 75%,#ffffff33 50%,transparent 51%);
+    background-repeat: repeat;
+    background-size: 600px 600px;
+    opacity:.6;
+  }
+  header{text-align:center;padding:40px 12px 8px;position:relative;z-index:2}
+  h1{font-family:"Baloo 2", cursive; letter-spacing:1px;
+     font-size:clamp(34px,7vw,84px);margin:0 0 6px;
+     background:linear-gradient(90deg,var(--a),var(--b),var(--c),var(--d),var(--e));
+     -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .tag{color:var(--dim);margin:0 0 18px;font-weight:600}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px;position:relative;z-index:2}
+
+  .section{margin:22px 0}
+  .card{background:var(--panel);border:1px solid #ffffff22;border-radius:14px;padding:16px;box-shadow:0 10px 24px #0006 inset}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:0 8px 18px #0008}
+
+  /* Sticky notes wall */
+  .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+  .note{
+    width:120px;height:120px;background:#fffd8c;color:#222;padding:10px;border-radius:8px;
+    box-shadow:0 12px 20px #0007, 0 2px 0 #0002 inset;
+    transform:rotate(var(--rot)); position:relative; overflow:hidden;
+  }
+  .note:before{content:"";position:absolute;top:0;left:0;right:0;height:20px;background:#00000008}
+  .note .by{position:absolute;bottom:6px;left:10px;font-size:12px;color:#333;font-weight:600}
+  .note.small{font-size:13px;line-height:1.15}
+  .wall-empty{color:var(--dim);font-style:italic}
+
+  form.inline{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+  input[type="text"]{
+    flex:1 1 240px;max-width:360px;padding:10px 12px;border-radius:10px;border:1px solid #ffffff22;
+    background:#0e183a;color:var(--ink)
+  }
+  .btn{border:0;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;color:#051018;
+       background:linear-gradient(90deg,var(--a),var(--b));}
+
+  /* Balloons */
+  .balloon{position:fixed;bottom:-120px;width:38px;height:48px;border-radius:50% 50% 50% 50%;
+           background:var(--balloon,#ff8bd1); box-shadow:inset -8px -10px 12px #00000025; z-index:1}
+  .balloon:after{content:"";position:absolute;left:50%;bottom:-16px;width:2px;height:18px;background:#fff3;
+                 transform:translateX(-50%)}
+  @keyframes floatUp{to{transform:translateY(-120vh)}}
+
+  /* Confetti */
+  .confetti{position:fixed;top:-10px;width:8px;height:14px;opacity:.9;pointer-events:none;z-index:3}
+
+  /* Shooting stars */
+  .shoot{position:fixed;top:-20px;left:-20px;width:2px;height:2px;background:#fff;border-radius:50%;
+         box-shadow:0 0 6px 2px #fff8;opacity:.8;pointer-events:none;z-index:0}
+  @keyframes shoot{to{transform:translate(120vw,120vh);opacity:0}}
+
+  iframe{max-width:100%;border-radius:12px;box-shadow:0 8px 20px #0009}
+  .center{text-align:center}
+
+  @media (max-width:700px){ .note{width:100px;height:100px} }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<header class="wrap">
+  <h1>Happy Birthday, Verena! 🎂</h1>
+  <p class="tag">We love you.</p>
+</header>
+
+<main class="wrap">
+  <!-- YouTube (1987) -->
+  <section class="section card center">
+    <h2 style="margin-top:0">1987 Vibe Check</h2>
+    <p>Did you know? In early September 1987, <b>“La Bamba”</b> hit #1 on the Hot 100. The year-end #1 was <b>“Walk Like an Egyptian.”</b></p>
+    <div style="margin:14px 0">
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/Cv6tuzHUuuk"
+        title="The Bangles - Walk Like an Egyptian (Official Video)"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Multiple choice -->
+    <div class="card" style="margin-top:10px">
+      <p style="margin:8px 0;font-weight:600">1987 trivia: Which song topped the Billboard year-end chart?</p>
+      <form id="quiz" class="inline">
+        <label><input type="radio" name="q1" value="bamba"> La Bamba — Los Lobos</label>
+        <label><input type="radio" name="q1" value="faith"> Faith — George Michael</label>
+        <label><input type="radio" name="q1" value="egypt"> Walk Like an Egyptian — The Bangles</label>
+        <label><input type="radio" name="q1" value="prayer"> Livin’ on a Prayer — Bon Jovi</label>
+        <button class="btn" type="submit">Lock Answer</button>
+      </form>
+      <p id="quizResult" style="font-weight:700"></p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section">
+    <h2>Memories</h2>
+    <div id="gallery" class="gallery card"></div>
+  </section>
+
+  <!-- Sticky notes -->
+  <section class="section card">
+    <h2 style="margin-top:0">Birthday Sticky Notes</h2>
+    <form id="noteForm" class="inline">
+      <input id="who" type="text" placeholder="Your name" required />
+      <input id="what" type="text" placeholder="Write a short note (max 120)" maxlength="120" required />
+      <button class="btn" type="submit">Post</button>
+    </form>
+    <div id="wall" class="wall">
+      <p id="emptyState" class="wall-empty">Be the first to leave a note!</p>
+    </div>
+  </section>
+
+  <section class="section center" style="color:var(--dim)">
+    <p>Made with love by Matthew. ✨</p>
+  </section>
+</main>
+
+<script>
+/* ---------------- Config ---------------- */
+const PHOTOS = [
+  "assets/verena_venice_family.jpg",
+  "assets/verena_pisa.jpg",
+  "assets/verena_smile_diner.jpg",
+  "assets/verena_kids_castle.jpg",
+  "assets/verena_boat.jpg",
+  "assets/verena_twins.jpg",
+];
+// If you keep your existing filenames, just change each string above to match.
+// Example: "assets/09B08D06.jpeg", etc.
+
+/* ---------------- Gallery ---------------- */
+const gallery = document.getElementById('gallery');
+PHOTOS.forEach(src=>{
+  const img=document.createElement('img'); img.src=src; img.alt="Family memory"; gallery.appendChild(img);
+});
+
+/* ---------------- Sticky Notes (localStorage) ---------------- */
+const wall = document.getElementById('wall');
+const emptyState = document.getElementById('emptyState');
+const KEY='verena_notes_v1';
+const COLORS=['#fffd8c','#ffd1e6','#c7f4ff','#c8ffcf','#ead6ff']; // pastel
+const ROT=['-2deg','-1deg','1deg','2deg','-3deg','3deg'];
+
+function renderNotes(){
+  const notes=JSON.parse(localStorage.getItem(KEY)||'[]');
+  wall.innerHTML='';
+  if(!notes.length){ wall.appendChild(emptyState); emptyState.style.display='block'; return; }
+  emptyState.style.display='none';
+  notes.forEach(n=>{
+    const d=document.createElement('div');
+    d.className='note small';
+    d.style.background = n.color;
+    d.style.setProperty('--rot', n.rot);
+    d.innerHTML = `<div>${escapeHtml(n.text)}</div><div class="by">— ${escapeHtml(n.by)}</div>`;
+    wall.appendChild(d);
+  });
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]))}
+renderNotes();
+
+document.getElementById('noteForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const by=document.getElementById('who').value.trim();
+  const text=document.getElementById('what').value.trim();
+  if(!by||!text) return;
+  const notes=JSON.parse(localStorage.getItem(KEY)||'[]');
+  notes.unshift({
+    by,text,ts:Date.now(),
+    color: COLORS[Math.floor(Math.random()*COLORS.length)],
+    rot: ROT[Math.floor(Math.random()*ROT.length)]
+  });
+  localStorage.setItem(KEY, JSON.stringify(notes));
+  e.target.reset();
+  renderNotes();
+  confetti(60);
+});
+
+/* ---------------- Trivia ---------------- */
+document.getElementById('quiz').addEventListener('submit',e=>{
+  e.preventDefault();
+  const pick=(new FormData(e.target)).get('q1');
+  const out=document.getElementById('quizResult');
+  if(!pick){ out.textContent='Pick one.'; return; }
+  if(pick==='egypt'){ out.textContent='Correct — “Walk Like an Egyptian” was #1 for 1987.'; confetti(80); }
+  else{ out.textContent='Close! Year-end #1 was “Walk Like an Egyptian.”'; }
+});
+
+/* ---------------- Balloons ---------------- */
+function launchBalloons(n=8){
+  const palette=['#ff8bd1','#6ad5ff','#ffe66d','#8cff98','#caa7ff'];
+  for(let i=0;i<n;i++){
+    const b=document.createElement('div');
+    b.className='balloon';
+    b.style.left = Math.random()*100+'vw';
+    b.style.setProperty('--balloon', palette[Math.floor(Math.random()*palette.length)]);
+    const dur= 9000 + Math.random()*7000;
+    b.style.animation=`floatUp ${dur}ms linear`;
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(), dur+500);
+  }
+}
+launchBalloons(10);
+setInterval(()=>launchBalloons(3), 5000);
+
+/* ---------------- Confetti ---------------- */
+function confetti(count=80){
+  const colors=['#ff8bd1','#6ad5ff','#ffe66d','#8cff98','#caa7ff'];
+  for(let i=0;i<count;i++){
+    const d=document.createElement('div');
+    d.className='confetti';
+    d.style.left=Math.random()*100+'vw';
+    d.style.background=colors[Math.floor(Math.random()*colors.length)];
+    d.style.transform=`rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(d);
+    const dx=(Math.random()*2-1)*60;
+    const dy=window.innerHeight+40;
+    d.animate([{transform:`translate(0,0) rotate(0deg)`},{transform:`translate(${dx}px,${dy}px) rotate(720deg)`}],
+              {duration:4000+Math.random()*3000,iterations:1});
+    setTimeout(()=>d.remove(), 5200);
+  }
+}
+
+/* ---------------- Shooting stars ---------------- */
+function shootingStar(){
+  const s=document.createElement('div');
+  s.className='shoot';
+  s.style.top = Math.random()*40+'vh';
+  s.style.left= Math.random()*20-10+'vw';
+  const dur= 1600 + Math.random()*1200;
+  s.style.animation=`shoot ${dur}ms linear forwards`;
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(), dur+50);
+}
+setInterval(shootingStar, 1500);
+</script>
+</body>
+</html>
